@@ -84,5 +84,7 @@
     "No COM/NAV equipment for the route carried or is unserviceable.": "No COM/NAV equipment for the route carried or is unserviceable",
     "VOR": "VOR",
     "Generate an ICAO equipment code for use on VATSIM flightplans!": "Generate an ICAO equipment code for use on VATSIM flightplans!",
-    "Select an aircraft template or check some equipment below to see the generated code": "Select an aircraft template or check some equipment below to see the generated code"
+    "Select an aircraft template or check some equipment below to see the generated code": "Select an aircraft template or check some equipment below to see the generated code",
+    "Standard Equipment composed of VHF RTF, VOR and ILS, unless another combination is prescribed by the appropriate ATS authority.": "Standard Equipment composed of VHF RTF, VOR and ILS, unless another combination is prescribed by the appropriate ATS authority.",
+    "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)": "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)"
 }

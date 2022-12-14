@@ -28,7 +28,7 @@ const submitForm = async () => {
   return success.value;
 };
 
-const equipmentCodes = [
+const equipmentCodes = computed(() => [
   // Radio communication, navigation and approach aid equipment and capabilities[edit] -->
   // A GBAS landing system
   // B LPV (APV with SBAS)
@@ -282,7 +282,7 @@ const equipmentCodes = [
   //     code: "A Transponder",
   //     name: "ADS-B with dedicated 1090 MHz ADS-B “out” capability",
   //   },
-];
+]);
 
 const templateAircraft = [
   {
@@ -313,7 +313,7 @@ const computedCode = computed(() => {
 
 const decodeCodes = (code: string) => {
   //   Select the codes that are in the code
-  selectedEquipmentCodes.value = equipmentCodes
+  selectedEquipmentCodes.value = equipmentCodes.value
     .filter((c) => code.includes(c.code))
     .map((c) => c.code);
 };

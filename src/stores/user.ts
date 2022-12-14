@@ -36,8 +36,10 @@ export const useUserStore = defineStore("user", () => {
     try {
       const response = await axios.get("api/user");
       user.value = response.data;
-      isAuthenticated.value = true;
-      await getCsrfToken();
+      if (user.value) {
+        isAuthenticated.value = true;
+        await getCsrfToken();
+      }
     } catch (error) {
       console.log(error);
     } finally {

@@ -313,6 +313,6 @@ const computedCode = computed(() => {
     </template>
   </BaseForm>
   <hr />
-  <h2 style="margin-bottom: 0">{{ $t("Your generated code") }}</h2>
+  <h2 style="margin-bottom: 0">{{ $t("Your generated ICAO code") }}</h2>
   <code>{{ computedCode }}</code>
 </template>

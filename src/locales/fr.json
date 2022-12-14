@@ -88,5 +88,7 @@
     "Standard Equipment composed of VHF RTF, VOR and ILS, unless another combination is prescribed by the appropriate ATS authority.": "Équipement standard composé de RTF VHF, VOR et ILS, sauf si une autre combinaison est prescrite par l'autorité ATS appropriée.",
     "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)": "Approuvé PBN (Si la lettre R est utilisée, les niveaux de navigation basés sur les performances qui peuvent être atteints sont indiqués dans l'élément 18 suivant l'indicateur PBN/.)",
     "Code name": "Nom du code",
-    "Save code": "Enregistrer le code"
+    "Save code": "Enregistrer le code",
+    "Indicates 8.33 kHz radio band spacing (a standard requirement)": "Indique une séparation de bande radio de 8,33 kHz (une exigence standard)",
+    "Other equipment carried or other capabilities": "Autre équipement transporté ou autres capacités"
 }

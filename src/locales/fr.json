@@ -51,5 +51,6 @@
     "Create a new API token": "Créer un nouveau jeton d'API",
     "New token name": "Nouveau nom de jeton",
     "Select your equipment": "Sélectionnez votre équipement",
-    "Your generated ICAO code": "Votre code ICAO généré"
+    "Your generated ICAO code": "Votre code ICAO généré",
+    "ICAO Equipment Code Generator": "Générateur de code d'équipement ICAO"
 }

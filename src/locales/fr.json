@@ -52,5 +52,9 @@
     "New token name": "Nouveau nom de jeton",
     "Select your equipment": "Sélectionnez votre équipement",
     "Your generated ICAO code": "Votre code ICAO généré",
-    "ICAO Equipment Code Generator": "Générateur de code d'équipement ICAO"
+    "ICAO Equipment Code Generator": "Générateur de code d'équipement ICAO",
+    "Your equipment code": "Votre code d'équipement",
+    "Equipment code": "Code d'équipement",
+    "Encode instead": "Encoder à la place",
+    "Decode instead": "Décoder à la place"
 }

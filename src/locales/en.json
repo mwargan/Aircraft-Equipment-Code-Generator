@@ -52,5 +52,9 @@
     "New token name": "New token name",
     "Select your equipment": "Select your equipment",
     "Your generated ICAO code": "Your generated ICAO code",
-    "ICAO Equipment Code Generator": "ICAO Equipment Code Generator"
+    "ICAO Equipment Code Generator": "ICAO Equipment Code Generator",
+    "Your equipment code": "Your equipment code",
+    "Equipment code": "Equipment code",
+    "Encode instead": "Encode instead",
+    "Decode instead": "Decode instead"
 }

@@ -288,6 +288,15 @@ const computedCode = computed(() => {
   }
   return codes.join("");
 });
+
+const decodeCodes = (code: string) => {
+  //   Select the codes that are in the code
+  selectedEquipmentCodes.value = equipmentCodes
+    .filter((c) => code.includes(c.code))
+    .map((c) => c.code);
+};
+
+const isDecoding = ref(false);
 </script>
 
 <template>
@@ -299,6 +308,7 @@ const computedCode = computed(() => {
     :show-submit-button="false"
   >
     <h2 style="margin-bottom: 0">{{ $t("Select your equipment") }}</h2>
+
     <!-- For each equipment code, create a label and checkbox -->
     <template v-for="code in equipmentCodes" :key="code.code">
       <label :for="code.code">
@@ -313,6 +323,19 @@ const computedCode = computed(() => {
     </template>
   </BaseForm>
   <hr />
-  <h2 style="margin-bottom: 0">{{ $t("Your generated ICAO code") }}</h2>
-  <code>{{ computedCode }}</code>
+  <template v-if="isDecoding">
+    <h2 style="margin-bottom: 0">{{ $t("Your equipment code") }}</h2>
+    <!-- Input for existing code to checkbox -->
+    <input
+      type="text"
+      @input="decodeCodes(($event.target as any).value)"
+      :placeholder="$t('Equipment code')"
+    />
+    <a href="#" @click="isDecoding = false">{{ $t("Encode instead") }}</a>
+  </template>
+  <template v-else>
+    <h2 style="margin-bottom: 0">{{ $t("Your generated ICAO code") }}</h2>
+    <code>{{ computedCode }}</code>
+    <a href="#" @click="isDecoding = true">{{ $t("Decode instead") }}</a>
+  </template>
 </template>

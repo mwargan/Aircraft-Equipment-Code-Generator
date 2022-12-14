@@ -317,7 +317,7 @@ const computedCode = computed(() => {
 const decodeCodes = (code: string) => {
   //   Select the codes that are in the code
   selectedEquipmentCodes.value = equipmentCodes.value
-    .filter((c) => code.includes(c.code))
+    .filter((c) => code.toUpperCase().includes(c.code))
     .map((c) => c.code);
 };
 

@@ -428,7 +428,10 @@ getUserSavedCodes();
     <section>
       <h2 style="margin-bottom: 0">{{ $t("Save code") }}</h2>
       <input type="text" v-model="saveName" :placeholder="$t('Code name')" />
-      <button @click="saveCodeToLocalStorage(saveName)">
+      <button
+        @click="saveCodeToLocalStorage(saveName)"
+        :disabled="!computedCode"
+      >
         {{ $t("Save") }}
       </button>
     </section>

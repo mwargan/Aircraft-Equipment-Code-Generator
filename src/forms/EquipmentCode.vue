@@ -275,6 +275,19 @@ const equipmentCodes = [
   //   },
 ];
 
+const templateAircraft = [
+  {
+    aircraftDeveloper: "Laminar Research",
+    aircraftCode: "C172",
+    code: "S",
+  },
+  {
+    aircraftDeveloper: "Zibo",
+    aircraftCode: "B738",
+    code: "SDE2E3FGIJ1RWYZ",
+  },
+];
+
 const selectedEquipmentCodes = ref([] as string[]);
 
 // The codes must be in alphabetical order
@@ -307,6 +320,19 @@ const isDecoding = ref(false);
     :submit-text="$t('Send a new password')"
     :show-submit-button="false"
   >
+    <!-- Dropdown of template aircraft -->
+    <h2 style="margin-bottom: 0">{{ $t("Select a template aircraft") }}</h2>
+    <select @change="decodeCodes(($event.target as any).value)">
+      <option value="">{{ $t("Select a template aircraft") }}</option>
+      <option
+        v-for="template in templateAircraft"
+        :key="template.aircraftCode"
+        :value="template.code"
+      >
+        {{ template.aircraftDeveloper }} {{ template.aircraftCode }}
+      </option>
+    </select>
+
     <h2 style="margin-bottom: 0">{{ $t("Select your equipment") }}</h2>
 
     <!-- For each equipment code, create a label and checkbox -->

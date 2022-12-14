@@ -3,6 +3,9 @@ import { useUserStore } from "@/stores/user";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import BaseForm from "./BaseForm.vue";
+import { eventTypes, useEventsBus } from "@/eventBus/events";
+
+const $bus = useEventsBus();
 
 const success = ref(false);
 
@@ -324,6 +327,7 @@ const saveCodeToLocalStorage = (name: string) => {
   localStorage.setItem("user-" + name, computedCode.value);
   saveName.value = "";
   getUserSavedCodes();
+  $bus.$emit(eventTypes.saved_icao_code, computedCode.value);
 };
 
 const userSavedCodes = ref([] as { name: string; code: string }[]);

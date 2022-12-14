@@ -1,4 +1,4 @@
-import { SUPPORT_LOCALES } from "@/locales/i18n";
+import i18n, { SUPPORT_LOCALES } from "@/locales/i18n";
 import { eventTypes } from "../events";
 
 class CustomNotification {
@@ -190,6 +190,14 @@ export default {
       "success",
       "We've sent you an email with a link to reset your password.",
       ["browser"],
+      5000
+    ).show();
+  },
+  [eventTypes.saved_icao_code]: () => {
+    new CustomNotification(
+      "success",
+      i18n.global.t("ICAO equipment code saved!"),
+      ["alert"],
       5000
     ).show();
   },

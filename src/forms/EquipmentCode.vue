@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useUserStore } from "@/stores/user";
 import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import BaseForm from "./BaseForm.vue";
 
 const success = ref(false);
@@ -8,6 +9,8 @@ const success = ref(false);
 const baseForm = ref();
 
 const emit = defineEmits(["success"]);
+
+const { t } = useI18n();
 
 const userStore = useUserStore();
 // The submit function. If there is just the email, check if the email is valid. If it is not, set the register mode. If it is, set the login mode.
@@ -65,103 +68,105 @@ const equipmentCodes = [
   // Z Other equipment carried or other capabilities
   {
     code: "A",
-    name: "GBAS landing system",
+    name: t("GBAS landing system"),
   },
   {
     code: "B",
-    name: "LPV (APV with SBAS)",
+    name: t("LPV (APV with SBAS)"),
   },
   {
     code: "C",
-    name: "LORAN C",
+    name: t("LORAN C"),
   },
   {
     code: "D",
-    name: "DME",
+    name: t("DME"),
   },
   {
     code: "E1",
-    name: "FMC WPR ACARS",
+    name: t("FMC WPR ACARS"),
   },
   {
     code: "E2",
-    name: "D-FIS ACARS",
+    name: t("D-FIS ACARS"),
   },
   {
     code: "E3",
-    name: "PDC ACARS",
+    name: t("PDC ACARS"),
   },
   {
     code: "F",
-    name: "ADF",
+    name: t("ADF"),
   },
   {
     code: "G",
-    name: "GNSS (If the letter G is used, the types of external GNSS augmentation, if any, are specified in Item 18 following the indicator NAV/ and separated by a space.)",
+    name: t(
+      "GNSS (If the letter G is used, the types of external GNSS augmentation, if any, are specified in Item 18 following the indicator NAV/ and separated by a space.)"
+    ),
   },
   {
     code: "H",
-    name: "HF RTF (HF RadioTelephone)",
+    name: t("HF RTF (HF RadioTelephone)"),
   },
   {
     code: "I",
-    name: "INS",
+    name: t("INS"),
   },
   {
     code: "J1",
-    name: "CPDLC ATN VDL Mode 2",
+    name: t("CPDLC ATN VDL Mode 2"),
   },
   {
     code: "J2",
-    name: "CPDLC FANS 1/A HFDL",
+    name: t("CPDLC FANS 1/A HFDL"),
   },
   {
     code: "J3",
-    name: "CPDLC FANS 1/A VDL Mode A/0",
+    name: t("CPDLC FANS 1/A VDL Mode A/0"),
   },
   {
     code: "J4",
-    name: "CPDLC FANS 1/A VDL Mode 2",
+    name: t("CPDLC FANS 1/A VDL Mode 2"),
   },
   {
     code: "J5",
-    name: "CPDLC FANS 1/A SATCOM (INMARSAT)",
+    name: t("CPDLC FANS 1/A SATCOM (INMARSAT)"),
   },
   {
     code: "J6",
-    name: "CPDLC FANS 1/A SATCOM (MTSAT)",
+    name: t("CPDLC FANS 1/A SATCOM (MTSAT)"),
   },
   {
     code: "J7",
-    name: "CPDLC FANS 1/A SATCOM (Iridium)",
+    name: t("CPDLC FANS 1/A SATCOM (Iridium)"),
   },
   {
     code: "K",
-    name: "MLS",
+    name: t("MLS"),
   },
   {
     code: "L",
-    name: "ILS",
+    name: t("ILS"),
   },
   {
     code: "M1",
-    name: "ATC RTF SATCOM (INMARSAT)",
+    name: t("ATC RTF SATCOM (INMARSAT)"),
   },
   {
     code: "M2",
-    name: "ATC RTF (MTSAT)",
+    name: t("ATC RTF (MTSAT)"),
   },
   {
     code: "M3",
-    name: "ATC RTF (Iridium)",
+    name: t("ATC RTF (Iridium)"),
   },
   {
     code: "N",
-    name: "No COM/NAV equipment for the route carried or is unserviceable.",
+    name: t("No COM/NAV equipment for the route carried or is unserviceable."),
   },
   {
     code: "O",
-    name: "VOR",
+    name: t("VOR"),
   },
   //   {
   //     code: "P1",
@@ -205,39 +210,43 @@ const equipmentCodes = [
   //   },
   {
     code: "R",
-    name: "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)",
+    name: t(
+      "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)"
+    ),
   },
   {
     code: "S",
-    name: "Standard Equipment composed of VHF RTF, VOR and ILS, unless another combination is prescribed by the appropriate ATS authority.",
+    name: t(
+      "Standard Equipment composed of VHF RTF, VOR and ILS, unless another combination is prescribed by the appropriate ATS authority."
+    ),
   },
   {
     code: "T",
-    name: "TACAN",
+    name: t("TACAN"),
   },
   {
     code: "U",
-    name: "UHF RTF",
+    name: t("UHF RTF"),
   },
   {
     code: "V",
-    name: "VHF RTF",
+    name: t("VHF RTF"),
   },
   {
     code: "W",
-    name: "RVSM approved",
+    name: t("RVSM approved"),
   },
   {
     code: "X",
-    name: "MNPS approved",
+    name: t("MNPS approved"),
   },
   {
     code: "Y",
-    name: "Indicates 8.33 kHz radio band spacing (a standard requirement)",
+    name: t("Indicates 8.33 kHz radio band spacing (a standard requirement)"),
   },
   {
     code: "Z",
-    name: "Other equipment carried or other capabilities",
+    name: t("Other equipment carried or other capabilities"),
   },
   // Surveillance equipment codes[edit]
   // SSR (secondary surveillance radar)[edit]

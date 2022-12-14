@@ -330,47 +330,60 @@ const isDecoding = ref(false);
     :show-submit-button="false"
   >
     <!-- Dropdown of template aircraft -->
-    <h2 style="margin-bottom: 0">{{ $t("Select a template aircraft") }}</h2>
-    <select @change="decodeCodes(($event.target as any).value)">
-      <option value="">{{ $t("Select a template aircraft") }}</option>
-      <option
-        v-for="template in templateAircraft"
-        :key="template.aircraftCode"
-        :value="template.code"
-      >
-        {{ template.aircraftDeveloper }} {{ template.aircraftCode }}
-      </option>
-    </select>
+    <section>
+      <h2 style="margin-bottom: 0">{{ $t("Select a template aircraft") }}</h2>
+      <select @change="decodeCodes(($event.target as any).value)">
+        <option value="">{{ $t("Select a template aircraft") }}</option>
+        <option
+          v-for="template in templateAircraft"
+          :key="template.aircraftCode"
+          :value="template.code"
+        >
+          {{ template.aircraftDeveloper }} {{ template.aircraftCode }}
+        </option>
+      </select>
+    </section>
 
-    <h2 style="margin-bottom: 0">{{ $t("Select your equipment") }}</h2>
+    <section v-if="isDecoding">
+      <h2 style="margin-bottom: 0">{{ $t("Your equipment code") }}</h2>
+      <!-- Input for existing code to checkbox -->
+      <input
+        type="text"
+        @input="decodeCodes(($event.target as any).value)"
+        :placeholder="$t('Equipment code')"
+      />
+      <a href="#" @click="isDecoding = false">{{ $t("Encode instead") }}</a>
+    </section>
+    <section v-else>
+      <h2 style="margin-bottom: 0">{{ $t("Your generated ICAO code") }}</h2>
+      <div>
+        <code v-if="computedCode !== ''">{{ computedCode }}</code>
+        <div v-else>
+          {{
+            $t(
+              "Select an aircraft template or check some equipment below to see the generated code"
+            )
+          }}
+        </div>
+      </div>
+      <a href="#" @click="isDecoding = true">{{ $t("Decode instead") }}</a>
+    </section>
 
-    <!-- For each equipment code, create a label and checkbox -->
-    <template v-for="code in equipmentCodes" :key="code.code">
-      <label :for="code.code">
-        <input
-          type="checkbox"
-          :id="code.code"
-          :value="code.code"
-          v-model="selectedEquipmentCodes"
-        />
-        {{ code.name }}
-      </label>
-    </template>
+    <section>
+      <h2 style="margin-bottom: 0">{{ $t("Select your equipment") }}</h2>
+
+      <!-- For each equipment code, create a label and checkbox -->
+      <template v-for="code in equipmentCodes" :key="code.code">
+        <label :for="code.code">
+          <input
+            type="checkbox"
+            :id="code.code"
+            :value="code.code"
+            v-model="selectedEquipmentCodes"
+          />
+          {{ code.name }}
+        </label>
+      </template>
+    </section>
   </BaseForm>
-  <hr />
-  <template v-if="isDecoding">
-    <h2 style="margin-bottom: 0">{{ $t("Your equipment code") }}</h2>
-    <!-- Input for existing code to checkbox -->
-    <input
-      type="text"
-      @input="decodeCodes(($event.target as any).value)"
-      :placeholder="$t('Equipment code')"
-    />
-    <a href="#" @click="isDecoding = false">{{ $t("Encode instead") }}</a>
-  </template>
-  <template v-else>
-    <h2 style="margin-bottom: 0">{{ $t("Your generated ICAO code") }}</h2>
-    <code>{{ computedCode }}</code>
-    <a href="#" @click="isDecoding = true">{{ $t("Decode instead") }}</a>
-  </template>
 </template>

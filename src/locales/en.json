@@ -82,5 +82,7 @@
     "ATC RTF (MTSAT)": "ATC RTF (MTSAT)",
     "ATC RTF (Iridium)": "ATC RTF (Iridium)",
     "No COM/NAV equipment for the route carried or is unserviceable.": "No COM/NAV equipment for the route carried or is unserviceable",
-    "VOR": "VOR"
+    "VOR": "VOR",
+    "Generate an ICAO equipment code for use on VATSIM flightplans!": "Generate an ICAO equipment code for use on VATSIM flightplans!",
+    "Select an aircraft template or check some equipment below to see the generated code": "Select an aircraft template or check some equipment below to see the generated code"
 }

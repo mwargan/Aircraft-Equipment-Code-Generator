@@ -319,6 +319,33 @@ const decodeCodes = (code: string) => {
 };
 
 const isDecoding = ref(false);
+
+const saveCodeToLocalStorage = (name: string) => {
+  localStorage.setItem("user-" + name, computedCode.value);
+  saveName.value = "";
+  getUserSavedCodes();
+};
+
+const userSavedCodes = ref([] as { name: string; code: string }[]);
+
+const getUserSavedCodes = () => {
+  const codes = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith("user-")) {
+      codes.push({
+        name: key.replace("user-", ""),
+        code: localStorage.getItem(key) || "",
+      });
+    }
+  }
+  userSavedCodes.value = codes;
+  return codes;
+};
+
+const saveName = ref("");
+
+getUserSavedCodes();
 </script>
 
 <template>
@@ -334,6 +361,13 @@ const isDecoding = ref(false);
       <h2 style="margin-bottom: 0">{{ $t("Select a template aircraft") }}</h2>
       <select @change="decodeCodes(($event.target as any).value)">
         <option value="">{{ $t("Select a template aircraft") }}</option>
+        <option
+          v-for="code in userSavedCodes"
+          :key="code.name"
+          :value="code.code"
+        >
+          {{ code.name }}
+        </option>
         <option
           v-for="template in templateAircraft"
           :key="template.aircraftCode"
@@ -354,6 +388,7 @@ const isDecoding = ref(false);
       />
       <a href="#" @click="isDecoding = false">{{ $t("Encode instead") }}</a>
     </section>
+
     <section v-else>
       <h2 style="margin-bottom: 0">{{ $t("Your generated ICAO code") }}</h2>
       <div>
@@ -384,6 +419,14 @@ const isDecoding = ref(false);
           {{ code.name }}
         </label>
       </template>
+    </section>
+
+    <section>
+      <h2>{{ $t("Save code") }}</h2>
+      <input type="text" v-model="saveName" :placeholder="$t('Code name')" />
+      <button @click="saveCodeToLocalStorage(saveName)">
+        {{ $t("Save") }}
+      </button>
     </section>
   </BaseForm>
 </template>

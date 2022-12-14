@@ -86,5 +86,7 @@
     "Generate an ICAO equipment code for use on VATSIM flightplans!": "Générer un code d'équipement ICAO à utiliser sur les plans de vol VATSIM!",
     "Select an aircraft template or check some equipment below to see the generated code": "Sélectionnez un modèle d'avion ou cochez certains équipements ci-dessous pour voir le code généré",
     "Standard Equipment composed of VHF RTF, VOR and ILS, unless another combination is prescribed by the appropriate ATS authority.": "Équipement standard composé de RTF VHF, VOR et ILS, sauf si une autre combinaison est prescrite par l'autorité ATS appropriée.",
-    "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)": "Approuvé PBN (Si la lettre R est utilisée, les niveaux de navigation basés sur les performances qui peuvent être atteints sont indiqués dans l'élément 18 suivant l'indicateur PBN/.)"
+    "PBN approved (If the letter R is used, the performance based navigation levels that can be met are specified in Item 18 following the indicator PBN/.)": "Approuvé PBN (Si la lettre R est utilisée, les niveaux de navigation basés sur les performances qui peuvent être atteints sont indiqués dans l'élément 18 suivant l'indicateur PBN/.)",
+    "Code name": "Nom du code",
+    "Save code": "Enregistrer le code"
 }

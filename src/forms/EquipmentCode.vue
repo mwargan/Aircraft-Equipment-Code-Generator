@@ -311,7 +311,7 @@ const computedCode = computed(() => {
     codes.splice(codes.indexOf("S"), 1);
     codes.unshift("S");
   }
-  return codes.join("");
+  return codes.join("").toUpperCase();
 });
 
 const decodeCodes = (code: string) => {
